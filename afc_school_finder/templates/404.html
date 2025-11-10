@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - AFC School Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='afc_logo.jpg') }}" alt="American Federation for Children" class="logo">
+                </a>
+                <div class="header-text">
+                    <h1>School Finder</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="error-container">
+                <div class="error-icon">🔍</div>
+                <h2>School Not Found</h2>
+                <p>We couldn't find the school you're looking for.</p>
+                <a href="/" class="btn-primary">Back to Search</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 American Federation for Children | <a href="https://www.federationforchildren.org/" target="_blank" rel="noopener noreferrer">Learn More About ECCA</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+

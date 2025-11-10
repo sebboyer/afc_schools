@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Finder - American Federation for Children</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="{{ url_for('static', filename='afc_logo.jpg') }}" alt="American Federation for Children" class="logo">
+                <div class="header-text">
+                    <h1>School Finder</h1>
+                    <p class="subtitle">Find schools to support through the ECCA tax credit program</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Hero Section with ECCA Info -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h2 class="hero-title">Support Education. Reduce Your Taxes.</h2>
+                    <p class="hero-description">
+                        The Educational Choice for Children Act (ECCA) allows you to receive a 
+                        <strong>100% federal tax credit</strong> for contributions to qualifying schools—up to 
+                        <strong>$1,700 per year</strong>. Help students access quality K-12 education while 
+                        maximizing your tax benefits.
+                    </p>
+                    <div class="hero-benefits">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">💰</div>
+                            <div class="benefit-text">
+                                <h3>$1,700 Tax Credit</h3>
+                                <p>Dollar-for-dollar credit per taxpayer</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">📚</div>
+                            <div class="benefit-text">
+                                <h3>Support Students</h3>
+                                <p>Help families access quality education</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">🎯</div>
+                            <div class="benefit-text">
+                                <h3>Effective Jan 2027</h3>
+                                <p>Federal program with no cap</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-header">
+                    <h2>Search for Schools</h2>
+                    <p id="stats-summary">Loading school data...</p>
+                </div>
+
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="name-search">School Name</label>
+                        <input 
+                            type="text" 
+                            id="name-search" 
+                            placeholder="Search by school name..."
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label for="state-filter">State</label>
+                            <select id="state-filter">
+                                <option value="">All States</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="postal-code-filter">Postal Code</label>
+                            <input 
+                                type="text" 
+                                id="postal-code-filter" 
+                                placeholder="Enter ZIP code..."
+                                maxlength="5"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="filter-actions">
+                        <button id="search-btn" class="btn-primary">Search Schools</button>
+                        <button id="clear-btn" class="btn-secondary">Clear Filters</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section">
+                <div class="results-header">
+                    <h3 id="results-count">Enter search criteria to find schools</h3>
+                </div>
+
+                <div id="loading-indicator" class="loading-indicator" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Loading schools...</p>
+                </div>
+
+                <div id="results-container" class="results-grid">
+                    <!-- School cards will be inserted here by JavaScript -->
+                </div>
+
+                <div id="no-results" class="no-results" style="display: none;">
+                    <div class="no-results-icon">🔍</div>
+                    <h3>No schools found</h3>
+                    <p>Try adjusting your search filters or search terms.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About ECCA</h4>
+                    <p>The Educational Choice for Children Act provides federal tax credits for contributions to scholarship granting organizations, helping families access quality K-12 education.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Eligibility</h4>
+                    <p>Students from households with income up to 300% of area median gross income are eligible for scholarships funded through this program.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Learn More</h4>
+                    <p>
+                        <a href="https://www.federationforchildren.org/" target="_blank" rel="noopener noreferrer" class="footer-link">
+                            Visit American Federation for Children →
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 American Federation for Children. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+

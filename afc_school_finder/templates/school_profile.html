@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ school.name }} - AFC School Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='afc_logo.jpg') }}" alt="American Federation for Children" class="logo">
+                </a>
+                <div class="header-text">
+                    <h1>School Finder</h1>
+                    <p class="subtitle">
+                        <a href="/" class="breadcrumb">← Back to Search</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- School Header -->
+            <section class="school-header">
+                <div class="school-title-section">
+                    <h1 class="school-name">{{ school.name }}</h1>
+                    {% if school.alternateName %}
+                    <p class="school-alternate-name">Also known as: {{ school.alternateName }}</p>
+                    {% endif %}
+                    
+                    <div class="school-location">
+                        <span class="location-icon">📍</span>
+                        {% if school.address.city and school.address.state %}
+                        <span>{{ school.address.city }}, {{ school.address.state }}</span>
+                        {% elif school.address.state %}
+                        <span>{{ school.address.state }}</span>
+                        {% endif %}
+                        {% if school.address.postalCode %}
+                        <span class="postal-code">{{ school.address.postalCode }}</span>
+                        {% endif %}
+                    </div>
+
+                    {% if school.rating %}
+                    <div class="school-rating">
+                        <span class="rating-stars">
+                            {% for i in range(school.rating.value|int) %}⭐{% endfor %}
+                        </span>
+                        <span class="rating-value">{{ school.rating.value }}/5</span>
+                        <span class="rating-count">({{ school.rating.count }} reviews)</span>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- CTA Button -->
+                <div class="school-cta">
+                    <a href="https://www.federationforchildren.org/" target="_blank" rel="noopener noreferrer" class="btn-contribute">
+                        <span class="cta-icon">💝</span>
+                        <span class="cta-text">
+                            <strong>Send My Contribution</strong>
+                            <small>Support this school & get tax credit</small>
+                        </span>
+                    </a>
+                    <p class="cta-note">Receive up to $1,700 federal tax credit</p>
+                </div>
+            </section>
+
+            <div class="profile-grid">
+                <!-- Left Column -->
+                <div class="profile-main">
+                    <!-- About Section -->
+                    {% if school.description %}
+                    <section class="profile-section">
+                        <h2 class="section-title">About</h2>
+                        <p class="school-description">{{ school.description }}</p>
+                    </section>
+                    {% endif %}
+
+                    <!-- School Details -->
+                    <section class="profile-section">
+                        <h2 class="section-title">School Information</h2>
+                        <div class="details-grid">
+                            {% if school.gradeRange %}
+                            <div class="detail-item">
+                                <div class="detail-icon">🎓</div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Grade Range</div>
+                                    <div class="detail-value">{{ school.gradeRange }}</div>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            {% if school.totalEnrollment %}
+                            <div class="detail-item">
+                                <div class="detail-icon">👥</div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Total Enrollment</div>
+                                    <div class="detail-value">{{ school.totalEnrollment }} students</div>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            {% if school.address.county %}
+                            <div class="detail-item">
+                                <div class="detail-icon">🏛️</div>
+                                <div class="detail-content">
+                                    <div class="detail-label">County</div>
+                                    <div class="detail-value">{{ school.address.county }}</div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </section>
+
+                    <!-- Address & Contact -->
+                    <section class="profile-section">
+                        <h2 class="section-title">Contact Information</h2>
+                        <div class="contact-info">
+                            {% if school.address.street %}
+                            <div class="contact-item">
+                                <div class="contact-icon">📍</div>
+                                <div class="contact-content">
+                                    <div class="contact-label">Address</div>
+                                    <div class="contact-value">
+                                        {{ school.address.street }}<br>
+                                        {% if school.address.city and school.address.state %}
+                                        {{ school.address.city }}, {{ school.address.state }} {{ school.address.postalCode }}
+                                        {% elif school.address.state %}
+                                        {{ school.address.state }} {{ school.address.postalCode }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            {% if school.telephone %}
+                            <div class="contact-item">
+                                <div class="contact-icon">📞</div>
+                                <div class="contact-content">
+                                    <div class="contact-label">Phone</div>
+                                    <div class="contact-value">
+                                        <a href="tel:{{ school.telephone }}">{{ school.telephone }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            {% if school.website %}
+                            <div class="contact-item">
+                                <div class="contact-icon">🌐</div>
+                                <div class="contact-content">
+                                    <div class="contact-label">Website</div>
+                                    <div class="contact-value">
+                                        <a href="{{ school.website }}" target="_blank" rel="noopener noreferrer">Visit School Website</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Column - Info Box -->
+                <aside class="profile-sidebar">
+                    <div class="info-box">
+                        <h3 class="info-box-title">About ECCA Tax Credits</h3>
+                        <div class="info-box-content">
+                            <div class="info-item">
+                                <div class="info-label">Tax Credit Amount</div>
+                                <div class="info-value-large">$1,700</div>
+                                <div class="info-subtext">per taxpayer per year</div>
+                            </div>
+
+                            <div class="info-divider"></div>
+
+                            <div class="info-item">
+                                <div class="info-label">Credit Type</div>
+                                <div class="info-value">Dollar-for-Dollar</div>
+                                <div class="info-subtext">100% nonrefundable federal tax credit</div>
+                            </div>
+
+                            <div class="info-divider"></div>
+
+                            <div class="info-item">
+                                <div class="info-label">Student Eligibility</div>
+                                <div class="info-value">≤300% Area Median Income</div>
+                                <div class="info-subtext">Households eligible for scholarships</div>
+                            </div>
+
+                            <div class="info-divider"></div>
+
+                            <div class="info-item">
+                                <div class="info-label">Effective Date</div>
+                                <div class="info-value">January 1, 2027</div>
+                                <div class="info-subtext">Federal program, no cap</div>
+                            </div>
+                        </div>
+
+                        <a href="https://www.federationforchildren.org/" target="_blank" rel="noopener noreferrer" class="info-box-link">
+                            Learn More About ECCA →
+                        </a>
+                    </div>
+
+                    <!-- Quick Action Box -->
+                    <div class="quick-action-box">
+                        <h3>Ready to Contribute?</h3>
+                        <p>Support {{ school.name }} and receive your federal tax credit.</p>
+                        <a href="https://www.federationforchildren.org/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                            Get Started
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About ECCA</h4>
+                    <p>The Educational Choice for Children Act provides federal tax credits for contributions to scholarship granting organizations, helping families access quality K-12 education.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Questions?</h4>
+                    <p>
+                        <a href="https://www.federationforchildren.org/" target="_blank" rel="noopener noreferrer" class="footer-link">
+                            Visit AFC Website →
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 American Federation for Children. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,7 @@
+[00:32:45.167] Server  ERROR    ⨯ Error: Cannot find module 'next/dist/client/components/builtin/global-not-found'
+Require stack:
+- /Users/sebboyer/Documents/Zeffy/schools/school-finder/node_modules/next/dist/server/dev/on-demand-entry-handler.js
+- /Users/sebboyer/Documents/Zeffy/schools/school-finder/node_modules/next/dist/server/dev/hot-reloader-turbopack.js
+- /Users/sebboyer/Documents/Zeffy/schools/school-finder/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/sebboyer/Documents/Zeffy/schools/school-finder/node_modules/next/dist/server/lib/router-server.js
+- /Users/sebboyer/Documents/Zeffy/schools/school-finder/node_modules/next/dist/server/lib/start-server.js
