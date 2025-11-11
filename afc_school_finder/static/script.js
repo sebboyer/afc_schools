@@ -263,3 +263,4 @@ function trackSearch(filters) {
     // Add analytics tracking here if needed
 }
 
+

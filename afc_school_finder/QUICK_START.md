@@ -178,3 +178,4 @@ The AFC School Finder is ready for production use. All features are implemented 
 
 **Start the app and begin exploring schools!**
 
+
