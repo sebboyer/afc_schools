@@ -11,7 +11,7 @@ def test_data_processing():
     """Test that schools.json was created and is valid"""
     print("Testing data processing...")
     
-    data_path = Path(__file__).parent / 'static' / 'data' / 'schools.json'
+    data_path = Path(__file__).parent / 'public' / 'data' / 'schools.json'
     
     if not data_path.exists():
         print("  ✗ schools.json not found")
@@ -94,18 +94,18 @@ def test_static_files():
     """Test that all static files exist"""
     print("\nTesting static files...")
     
-    static_dir = Path(__file__).parent / 'static'
+    public_dir = Path(__file__).parent / 'public'
     required_files = ['style.css', 'script.js', 'afc_logo.jpg']
     
     for file in required_files:
-        file_path = static_dir / file
+        file_path = public_dir / file
         if not file_path.exists():
             print(f"  ✗ Missing static file: {file}")
             return False
         print(f"  ✓ {file} exists")
     
     # Check CSS for AFC branding
-    with open(static_dir / 'style.css', 'r') as f:
+    with open(public_dir / 'style.css', 'r') as f:
         css = f.read()
         if '#0052A5' not in css:  # AFC primary blue
             print("  ✗ AFC blue color not found in CSS")
@@ -114,7 +114,7 @@ def test_static_files():
     print("  ✓ style.css includes AFC branding colors")
     
     # Check JavaScript for key functions
-    with open(static_dir / 'script.js', 'r') as f:
+    with open(public_dir / 'script.js', 'r') as f:
         js = f.read()
         required_functions = ['loadSchools', 'performSearch', 'populateStateFilter']
         for func in required_functions:
@@ -162,7 +162,7 @@ def test_search_filters():
     """Test search filtering logic"""
     print("\nTesting search filters...")
     
-    data_path = Path(__file__).parent / 'static' / 'data' / 'schools.json'
+    data_path = Path(__file__).parent / 'public' / 'data' / 'schools.json'
     with open(data_path, 'r') as f:
         schools = json.load(f)
     

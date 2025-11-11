@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 
 # Load schools data
-SCHOOLS_DATA_PATH = Path(__file__).parent / 'static' / 'data' / 'schools.json'
+SCHOOLS_DATA_PATH = Path(__file__).parent / 'public' / 'data' / 'schools.json'
 schools_data: List[Dict[str, Any]] = []
 
 

@@ -222,7 +222,7 @@ def process_schools_csv(csv_path: str, output_path: str):
 
 if __name__ == '__main__':
     csv_path = Path(__file__).parent.parent / 'niche-nces-match.csv'
-    output_path = Path(__file__).parent / 'static' / 'data' / 'schools.json'
+    output_path = Path(__file__).parent / 'public' / 'data' / 'schools.json'
     
     print("Processing schools CSV...")
     process_schools_csv(str(csv_path), str(output_path))
