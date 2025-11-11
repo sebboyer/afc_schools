@@ -694,10 +694,13 @@ main {
     background: var(--white);
     color: var(--primary-blue);
     text-decoration: none;
+    border: none;
     border-radius: 35px;
     box-shadow: var(--shadow-lg);
     transition: var(--transition);
     margin-bottom: 12px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
 }
 
 .btn-contribute:hover {
@@ -956,6 +959,72 @@ main {
     width: auto;
 }
 
+/* Donation Form Container */
+.donation-form-container {
+    background: var(--white);
+    border: 2px solid var(--primary-blue);
+    border-radius: var(--border-radius);
+    padding: 32px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-md);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.donation-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.donation-form-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin: 0;
+}
+
+.close-form-btn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--text-medium);
+    cursor: pointer;
+    padding: 8px;
+    line-height: 1;
+    transition: var(--transition);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-form-btn:hover {
+    background: var(--gray-bg);
+    color: var(--primary-blue);
+}
+
+.donation-form-wrapper {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
 /* Error Page */
 .error-container {
     text-align: center;
@@ -1153,6 +1222,24 @@ footer {
 
     header {
         position: relative;
+    }
+
+    .donation-form-container {
+        padding: 20px;
+    }
+
+    .donation-form-header h2 {
+        font-size: 20px;
+    }
+
+    .close-form-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 24px;
+    }
+
+    .donation-form-wrapper > div {
+        height: 800px !important;
     }
 }
 
