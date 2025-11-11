@@ -7,27 +7,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <header>
+    <header class="header-blue">
         <div class="container">
             <div class="header-content">
-                <a href="/">
-                    <img src="/afc_logo.jpg" alt="American Federation for Children" class="logo">
-                </a>
-                <div class="header-text">
-                    <h1>School Finder</h1>
-                    <p class="subtitle">
-                        <a href="/" class="breadcrumb">← Back to Search</a>
-                    </p>
+                <div class="header-left">
+                    <a href="/">
+                        <img src="/static/afc_logo.jpg" alt="American Federation for Children" class="logo">
+                    </a>
                 </div>
+                <nav class="nav-menu">
+                    <a href="/">Home</a>
+                    <a href="/#about-ecca">About ECCA</a>
+                    <a href="/#how-it-works">How It Works</a>
+                    <a href="https://www.federationforchildren.org/" target="_blank" rel="noopener noreferrer">AFC Website</a>
+                </nav>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
             </div>
         </div>
     </header>
 
     <main>
         <div class="container">
+            <!-- Back Navigation -->
+            <div class="back-navigation">
+                <a href="/" class="back-link">
+                    <span class="back-arrow">←</span>
+                    <span>Back to Search</span>
+                </a>
+            </div>
+
             <!-- School Header -->
             <section class="school-header">
                 <div class="school-title-section">

@@ -7,103 +7,116 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <header>
+    <header class="header-blue">
         <div class="container">
             <div class="header-content">
-                <img src="/afc_logo.jpg" alt="American Federation for Children" class="logo">
-                <div class="header-text">
-                    <h1>School Finder</h1>
-                    <p class="subtitle">Find schools to support through the ECCA tax credit program</p>
+                <div class="header-left">
+                    <img src="/static/afc_logo.jpg" alt="American Federation for Children" class="logo">
                 </div>
+                <nav class="nav-menu">
+                    <a href="/">Home</a>
+                    <a href="#about-ecca">About ECCA</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="https://www.federationforchildren.org/" target="_blank" rel="noopener noreferrer">AFC Website</a>
+                </nav>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
             </div>
         </div>
     </header>
 
     <main>
+        <!-- Hero Section with Background Image -->
+        <section class="hero-background-section" id="about-ecca">
+            <div class="hero-background-image"></div>
+            <div class="container">
+                <div class="hero-content-wrapper">
+                    <!-- Hero Content -->
+                    <div class="hero-info-widget">
+                        <div class="hero-content">
+                            <h2 class="hero-title">Support Education. Reduce Your Taxes.</h2>
+                            <p class="hero-description">
+                                The Educational Choice for Children Act (ECCA) allows you to receive a 
+                                <strong>100% federal tax credit</strong> for contributions to qualifying schools—up to 
+                                <strong>$1,700 per year</strong>. Help students access quality K-12 education while 
+                                maximizing your tax benefits.
+                            </p>
+                            <div class="hero-benefits">
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">💰</div>
+                                    <div class="benefit-text">
+                                        <h3>$1,700 Tax Credit</h3>
+                                        <p>Dollar-for-dollar credit per taxpayer</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">📚</div>
+                                    <div class="benefit-text">
+                                        <h3>Support Students</h3>
+                                        <p>Help families access quality education</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">🎯</div>
+                                    <div class="benefit-text">
+                                        <h3>Effective Jan 2027</h3>
+                                        <p>Federal program with no cap</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Search Section -->
+                    <section class="search-section" id="how-it-works">
+                        <div class="search-header">
+                            <h2>Search the school you want to donate to</h2>
+                            <p id="stats-summary">Loading school data...</p>
+                        </div>
+
+                        <div class="filters-container">
+                            <div class="filter-group">
+                                <label for="name-search">School Name</label>
+                                <input 
+                                    type="text" 
+                                    id="name-search" 
+                                    placeholder="Search by school name..."
+                                    autocomplete="off"
+                                >
+                            </div>
+
+                            <div class="filter-row">
+                                <div class="filter-group">
+                                    <label for="state-filter">State</label>
+                                    <select id="state-filter">
+                                        <option value="">All States</option>
+                                    </select>
+                                </div>
+
+                                <div class="filter-group">
+                                    <label for="postal-code-filter">Postal Code</label>
+                                    <input 
+                                        type="text" 
+                                        id="postal-code-filter" 
+                                        placeholder="Enter ZIP code..."
+                                        maxlength="5"
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="filter-actions">
+                                <button id="search-btn" class="btn-primary">Search Schools</button>
+                                <button id="clear-btn" class="btn-secondary">Clear Filters</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
         <div class="container">
-            <!-- Hero Section with ECCA Info -->
-            <section class="hero-section">
-                <div class="hero-content">
-                    <h2 class="hero-title">Support Education. Reduce Your Taxes.</h2>
-                    <p class="hero-description">
-                        The Educational Choice for Children Act (ECCA) allows you to receive a 
-                        <strong>100% federal tax credit</strong> for contributions to qualifying schools—up to 
-                        <strong>$1,700 per year</strong>. Help students access quality K-12 education while 
-                        maximizing your tax benefits.
-                    </p>
-                    <div class="hero-benefits">
-                        <div class="benefit-card">
-                            <div class="benefit-icon">💰</div>
-                            <div class="benefit-text">
-                                <h3>$1,700 Tax Credit</h3>
-                                <p>Dollar-for-dollar credit per taxpayer</p>
-                            </div>
-                        </div>
-                        <div class="benefit-card">
-                            <div class="benefit-icon">📚</div>
-                            <div class="benefit-text">
-                                <h3>Support Students</h3>
-                                <p>Help families access quality education</p>
-                            </div>
-                        </div>
-                        <div class="benefit-card">
-                            <div class="benefit-icon">🎯</div>
-                            <div class="benefit-text">
-                                <h3>Effective Jan 2027</h3>
-                                <p>Federal program with no cap</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Search Section -->
-            <section class="search-section">
-                <div class="search-header">
-                    <h2>Search for Schools</h2>
-                    <p id="stats-summary">Loading school data...</p>
-                </div>
-
-                <div class="filters-container">
-                    <div class="filter-group">
-                        <label for="name-search">School Name</label>
-                        <input 
-                            type="text" 
-                            id="name-search" 
-                            placeholder="Search by school name..."
-                            autocomplete="off"
-                        >
-                    </div>
-
-                    <div class="filter-row">
-                        <div class="filter-group">
-                            <label for="state-filter">State</label>
-                            <select id="state-filter">
-                                <option value="">All States</option>
-                            </select>
-                        </div>
-
-                        <div class="filter-group">
-                            <label for="postal-code-filter">Postal Code</label>
-                            <input 
-                                type="text" 
-                                id="postal-code-filter" 
-                                placeholder="Enter ZIP code..."
-                                maxlength="5"
-                            >
-                        </div>
-                    </div>
-
-                    <div class="filter-actions">
-                        <button id="search-btn" class="btn-primary">Search Schools</button>
-                        <button id="clear-btn" class="btn-secondary">Clear Filters</button>
-                    </div>
-                </div>
-            </section>
-
             <!-- Results Section -->
             <section class="results-section">
                 <div class="results-header">
@@ -154,7 +167,7 @@
         </div>
     </footer>
 
-    <script src="/script.js"></script>
+    <script src="/static/script.js"></script>
 </body>
 </html>
 

@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import List, Dict, Any
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='public', static_url_path='/static')
 app.config['JSON_SORT_KEYS'] = False
 
 # Load schools data
