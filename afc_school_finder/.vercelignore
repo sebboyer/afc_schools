@@ -1,0 +1,47 @@
+# Don't upload to Vercel (reduces deployment size and time)
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Development files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Scripts (not needed in production)
+process_schools.py
+test_app.py
+
+# Source data (CSV not needed - we have JSON)
+../niche-nces-match.csv
+
+# Documentation (not needed in production)
+*.md
+!README.md
+
+# Git
+.git/
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Old static folder (if it exists)
+static/
+
+# Keep public/data for backup, but Flask uses data/ folder
+# public/data/
+

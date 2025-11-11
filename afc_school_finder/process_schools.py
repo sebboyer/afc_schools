@@ -222,9 +222,19 @@ def process_schools_csv(csv_path: str, output_path: str):
 
 if __name__ == '__main__':
     csv_path = Path(__file__).parent.parent / 'niche-nces-match.csv'
-    output_path = Path(__file__).parent / 'public' / 'data' / 'schools.json'
+    # Save to data/ folder (for Flask function on Vercel)
+    output_path = Path(__file__).parent / 'data' / 'schools.json'
     
     print("Processing schools CSV...")
     process_schools_csv(str(csv_path), str(output_path))
+    
+    # Also save to public/data/ for backward compatibility
+    public_output_path = Path(__file__).parent / 'public' / 'data' / 'schools.json'
+    print(f"Copying to {public_output_path}...")
+    public_output_path.parent.mkdir(parents=True, exist_ok=True)
+    import shutil
+    shutil.copy2(str(output_path), str(public_output_path))
+    print(f"✓ Also saved to {public_output_path}")
+    
     print("Done!")
 

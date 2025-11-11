@@ -14,7 +14,9 @@ app = Flask(__name__, static_folder='public', static_url_path='')
 app.config['JSON_SORT_KEYS'] = False
 
 # Load schools data
-SCHOOLS_DATA_PATH = Path(__file__).parent / 'public' / 'data' / 'schools.json'
+# Note: On Vercel, 'public/' files are on CDN, not accessible to Flask function
+# So we keep schools.json in 'data/' folder at root level
+SCHOOLS_DATA_PATH = Path(__file__).parent / 'data' / 'schools.json'
 schools_data: List[Dict[str, Any]] = []
 
 
