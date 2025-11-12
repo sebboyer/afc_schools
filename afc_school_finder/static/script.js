@@ -223,7 +223,7 @@ function createSchoolCard(school) {
             
             <div class="school-card-footer">
                 <a href="/school/${school.slug}" class="view-school-btn" onclick="event.stopPropagation()">
-                    View School Details
+                    Send ${escapeHtml(school.name)} your free tax credit dollars
                 </a>
             </div>
         </div>
