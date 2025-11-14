@@ -216,3 +216,4 @@ Your schools database will be accessible on Vercel! 🎉
 
 **Success?** Your 15,467 schools are now searchable in production! 🚀
 
+

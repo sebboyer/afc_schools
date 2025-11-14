@@ -32,7 +32,8 @@ async function loadSchools() {
         // Update stats
         if (statsummary) {
             const states = new Set(allSchools.map(s => s.address?.state).filter(Boolean));
-            statsummary.textContent = `${allSchools.length.toLocaleString()} schools across ${states.size} states`;
+            const stateCount = Math.min(states.size, 50);
+            statsummary.textContent = `${allSchools.length.toLocaleString()} schools across ${stateCount} states`;
         }
         
         showLoading(false);
